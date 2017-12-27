@@ -24,6 +24,7 @@ declare module.exports: {
   getAPILevel: () => number,
   getInstanceID: () => string,
   getPhoneNumber: () => ?string,
+    getImsi: () => ?string,
   getFirstInstallTime: () => number,
   getLastUpdateTime: () => number,
   getSerialNumber: () => string,
