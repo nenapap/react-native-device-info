@@ -188,6 +188,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
         constants.put("phoneNumber", telMgr.getLine1Number());
     }
     constants.put("carrier", this.getCarrier());
+    constants.put("imsi", telMgr.getSubscriberId());
     return constants;
   }
 }
