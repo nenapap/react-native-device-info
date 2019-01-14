@@ -1,6 +1,7 @@
 /**
  * @providesModule react-native-device-info
  */
+import { Platform } from 'react-native'
 
 var RNDeviceInfo = require('react-native').NativeModules.RNDeviceInfo;
 
@@ -86,9 +87,14 @@ module.exports = {
     getLastUpdateTime: function () {
         return RNDeviceInfo.lastUpdateTime;
     },
-    getPhoneNumber: function () {
-        return RNDeviceInfo.phoneNumber;
-    },
+    getPhoneNumber: function() {
+          if (Platform.OS === 'ios') {
+            return Promise.resolve(null)
+          }
+          else {
+              return RNDeviceInfo.getPhoneNumber();
+          }
+      },
     getCarrier: function () {
         return RNDeviceInfo.carrier;
     },
